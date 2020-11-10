@@ -72,12 +72,18 @@
   - 时间戳：timestamp=1501035945348
   - 请求的业务参数为：out_trade_no=20201111010855001,body=会员购买,total_fee=990
   - 请求地址：<https://pay.51xshi.com/unify/${channel}/${method}>
-  - 签名生成如下：
-    1. 排序后为：app_key=littlezov, app_secret=4e686d87ae838d7a448d8ae0dd417662, body=会员购买, channel=weixin, method=scan, out_trade_no=20201111010855001, timestamp=1605030459932, total_fee=990, type=weixin
+  - 签名生成如下
+  
+     1. 排序后为：app_key=littlezov, app_secret=4e686d87ae838d7a448d8ae0dd417662, body=会员购买, channel=weixin, method=scan, out_trade_no=20201111010855001, timestamp=1605030459932, total_fee=990, type=weixin
+
     2. 参数名称和参数值链接成一个字符串string=app_keylittlezovapp_secret4e686d87ae838d7a448d8ae0dd417662body会员购买channelweixinmethodscanout_trade_no20201111010855001timestamp1605030459932total_fee990typeweixin
+
     3.在字符串string的首尾加上app_secret的值组成一个新字符串signString=4e686d87ae838d7a448d8ae0dd417662app_keylittlezovapp_secret4e686d87ae838d7a448d8ae0dd417662body会员购买channelweixinmethodscanout_trade_no20201111010855001timestamp1605030459932total_fee990typeweixin4e686d87ae838d7a448d8ae0dd417662
+
     4.对字符串signString进行两次md5得到签名sign签名sign=md5(md5(4e686d87ae838d7a448d8ae0dd417662app_keylittlezovapp_secret4e686d87ae838d7a448d8ae0dd417662body会员购买channelweixinmethodscanout_trade_no20201111010855001timestamp1605030459932total_fee990typeweixin4e686d87ae838d7a448d8ae0dd417662)) , 即：72768d348d9d4dcce48772dd65e83286
+
     5.最终的请求地址为 ： <https://pay.51xshi.com/unify/weixin/app>
+
     6.请求参数为
 
     ``` code
