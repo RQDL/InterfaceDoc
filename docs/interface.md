@@ -86,7 +86,7 @@
 
     6.请求参数为
 
-    ``` code
+    ``` 
      {
         "app_key": "littlezov",
         "app_secret": "4e686d87ae838d7a448d8ae0dd417662",
@@ -147,7 +147,9 @@
 - ##### result对象
 
   ***支付类***
+  
   [微信支付 返回结果](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1)
+
   [支付宝支付 响应示例](https://opendocs.alipay.com/apis/api_1/alipay.trade.app.pay)
 
   ***授权类***
