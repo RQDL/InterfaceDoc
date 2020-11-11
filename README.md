@@ -1,9 +1,7 @@
-# PayRpcServices 接口服务
+# 瑞乾动力接口文档中心
 
 ===============
 
-> 运行环境要求PHP7.4+。
-
 ## 文档
 
-[接入手册](docs/interface.md)
+[统一支付接入文档](docs/pay_interface.md)
