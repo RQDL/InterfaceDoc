@@ -42,7 +42,8 @@
 | out_trade_no | String(32)       | *必选     | 订单号 全局唯一                                                                                  | 微信支付  支付宝               |
 | body         | String(128)      | *必选     | 商品描述                                                                                         | 微信支付                       |
 | subject      | String           | *必选     | 商品描述 注意：不可使用特殊字符，如 /，=，& 等。                                                 | 支付宝                         |
-| total_fee    | Decimail         | *必选     | 支付金额 微信支付 单位/分 支付宝支付 单位/元                                                     | 微信支付  支付宝               |
+| total_fee    | Decimail         | *必选     | 支付金额 微信支付 单位/分                                                                        | 微信支付                       |
+| total_amount | Decimail         | *必选     | 支付金额 支付宝支付 单位/元                                                                      | 支付宝                         |
 | http_method  | GET              | 可选      | 仅（web/wap）模式有效 如果想在 wap 支付时使用 GET 方式提交，请加上此参数。默认使用 POST 方式提交 | 支付宝                         |
 | detail       | String(6000)     | 可选      | 商品详情                                                                                         | 微信支付                       |
 | goods_detail | GoodsDetail[]    | 可选      | 订单包含的商品列表信息，json格式，其它说明详见商品明细说明                                       | 支付宝支付                     |
@@ -52,7 +53,7 @@
 | └price       | Price(9)         | *必选     | 传入 goods_detail 必选 商品单价，单位为元                                                        | 支付宝支付                     |
 | openid       | String           | 可选      | 用户openid                                                                                       | 微信支付（小程序、公众号）必选 |
 | notify_url   | String           | 可选      | 结果回调通知地址                                                                                 | 微信支付 支付宝                |
-| return_url   | String           | 可选      | 请求回调地址 HTTP/HTTPS开头字符串                                                                | 支付宝                         |
+| return_url   | String           | 可选      | 请求回调地址 HTTP/HTTPS开头字符串                                                                | 微信支付 支付宝                |
 
 ***
 
@@ -72,7 +73,7 @@
   - 支付类型：method=app
   - 时间戳：timestamp=1501035945348
   - 请求的业务参数为：out_trade_no=20201111010855001,body=会员购买,total_fee=990
-  - 请求地址：<https://pay.51xshi.com/unify/${channel}/${method}>
+  - 请求地址：<https://pay.51xshi.com/unify/${channel}>
   - 签名生成如下
   
      1. 排序后为：app_key=littlezov, app_secret=4e686d87ae838d7a448d8ae0dd417662, body=会员购买, channel=wechat, method=scan, out_trade_no=20201111010855001, timestamp=1605030459932, total_fee=990
@@ -83,7 +84,7 @@
 
     4.对字符串signString进行两次md5得到签名sign签名sign=md5(md5(4e686d87ae838d7a448d8ae0dd417662app_keylittlezovapp_secret4e686d87ae838d7a448d8ae0dd417662body会员购买channelwechatmethodscanout_trade_no20201111010855001timestamp1605030459932total_fee990typewechat4e686d87ae838d7a448d8ae0dd417662)) , 即：72768d348d9d4dcce48772dd65e83286
 
-    5.最终的请求地址为 ： <https://pay.51xshi.com/unify/wechat/app>
+    5.最终的请求地址为 ： <https://pay.51xshi.com/unify/wechat>
 
     6.请求参数为
 
